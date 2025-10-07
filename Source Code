@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import datetime
 import solarsystem
+import numpy
 now    = datetime.datetime.utcnow()
 now    = datetime.datetime.now(datetime.timezone.utc)
 year   = now.year
@@ -846,7 +847,10 @@ def get_text_input():
     entry = ttk.Entry(root)
     user_input = entry.get()
     math_input = entry.get()
-    
+
+S=-0.57
+R1=1
+R2=1
 
 def sun_declination(day_of_year, axial_tilt_deg=23.44, days_in_year=365.24):
     epsilon = np.deg2rad(axial_tilt_deg)
@@ -864,8 +868,8 @@ def sun_declination(day_of_year, axial_tilt_deg=23.44, days_in_year=365.24):
             
         if user_input.islower() == 'mars':
             t = np.linspace(0,2*np.pi,30)
-            x=((3.08256083746)*np.sin(v))+(S*np.cosh(-t)*np.cos(w))-(R1*np.sinh(-t)*np.sin(w))+(S*np.cosh(-t)*np.sin(w))+(R1*np.sinh(-t)*np.cos(w))
-            y=((3.08256083746)*np.cos(v))+(R2*np.cosh(-t)*np.cos(w))-(S*np.sinh(-t)*np.sin(w))+(R2*np.cosh(-t)*sin(w))+(S*sinh(-t)*cos(w))
+            x=((3.08256083746)*np.sin(v))+(S*np.cosh(-t)*np.cos(35))-(R1*np.sinh(-t)*np.sin(35))+(S*np.cosh(-t)*np.sin(35))+(R1*np.sinh(-t)*np.cos(35))
+            y=((3.08256083746)*np.cos(v))+(R2*np.cosh(-t)*np.cos(35))-(S*np.sinh(-t)*np.sin(35))+(R2*np.cosh(-t)*sin(35))+(S*sinh(-t)*cos(35))
             plt.plot(x,y)
             plt.show()                                                                          
                                                                                     
